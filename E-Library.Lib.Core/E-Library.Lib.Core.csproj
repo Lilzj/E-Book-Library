@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>E_Library.Lib.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.15.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-library.Lib.Data\E-library.Lib.Data.csproj" />
+    <ProjectReference Include="..\E-library.Lib.DTO\E-library.Lib.DTO.csproj" />
+    <ProjectReference Include="..\E-Library.Lib.Utilities\E-Library.Lib.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVC Core\Services\" />
+  </ItemGroup>
+
+</Project>

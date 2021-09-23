@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - E_Library</title>
+    <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/DashBoard.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm d-flex flex-column navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-5 navbar-container">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" alt="Logo" style="width: 75px;" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav flex-xl-row flex-column">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item ml-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Sign Out</a>
+                            </li>
+                            <li class="nav-item ml-auto">
+                                <span>@User.Identity.Name</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ml-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+                            </li>
+                        }
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Favourite</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container w-50 d-flex mb-3 search-bar">
+                <input type="text" class="form-control" placeholder="Enter search term" aria-label="search" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-dark btn-search" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    </div>
+    <section class="d-flex justify-content-center my-4">
+        <div class="mx-5">
+            <a class="mx-2">About Us</a>
+            <a class="mx-2">Contact Us Us</a>
+        </div>
+        <div class="mx-5">
+            <span class="mx-4 social-icon"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></span>
+            <span class="mx-4 social-icon"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i></span>
+            <span class="mx-4 social-icon"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></span>
+        </div>
+    </section>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - E_Library - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

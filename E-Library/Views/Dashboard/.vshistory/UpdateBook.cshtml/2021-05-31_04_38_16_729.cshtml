@@ -1,0 +1,63 @@
+﻿@model UpdateBookViewModel
+@{
+    Layout = "_Layout.cshtml";
+
+}
+<!--add book -->
+<div class="tab-pane fade dash-tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="">
+    <div class="container-fluid d-flex justify-content-center align-content-center mt-2">
+        <div class="col-md-6 book-layout-container">
+            <a href="#add-book-form" data-toggle="collapse" id="add-book-form-title" class="collapse-header" style="width:90%;">Add Books</a>
+            <div id="add-book-form" class="collapse show">
+                <form method="post" asp-controller="Book" class="Add-book-form" asp-action="AddBook">
+                    <div class="form-group col">
+                        <input placeholder="Title" asp-for="BookTitle" class="form-control" />
+                        <span asp-validation-for="BookTitle" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        </i><input placeholder="Author" asp-for="Authur" class="form-control" />
+                        <span asp-validation-for="Authur" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <input placeholder="ISBN" asp-for="BookIsbn" class="form-control" />
+                        <span asp-validation-for="BookIsbn" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <input placeholder="Total Copies" asp-for="TotalCopies" class="form-control" />
+                        <span asp-validation-for="TotalCopies" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <div class="container">
+                            <div class="row">
+                                <input type="date" placeholder="date added" name="name" value="" class="col" />
+                                <span asp-validation-for="DatePublished" style="color:green"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="form-group col">
+                                <select placeholder="" style="">
+                                    <option>Select Category</option>
+                                </select>
+                                <span asp-validation-for="Genre" style="color:green"></span>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="file" name="name" value="" />
+                                <span asp-validation-for="BookIsbn" style="color:green"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <textarea cols="40" rows="3" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group col d-flex justify-content-center align-content-center add-book-btn pb-2">
+                        <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark" id="add-book-button">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

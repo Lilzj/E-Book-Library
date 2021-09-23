@@ -1,0 +1,73 @@
+﻿@model AddBookDTO
+<!--add book -->
+<div class="tab-pane dash-tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="">
+    <div class="container-fluid d-flex justify-content-center align-content-center mt-2">
+        <div class="col-md-6 book-layout-container">
+            <a href="#add-book-form" data-toggle="collapse" id="add-book-form-title" class="collapse-header" style="width:90%;">Add Books</a>
+            <div id="add-book-form" class="collapse show">
+                <form method="post" asp-controller="DashBoard" class="Add-book-form" asp-action="AddBook" enctype="multipart/form-data">
+                    <div class="form-group col">
+                        <input placeholder="Title" asp-for=@Model.Title class="form-control" />
+                        <span asp-validation-for=@Model.Title style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        </i><input placeholder="Author" asp-for="@Model.Author" class="form-control" />
+                        <span asp-validation-for="@Model.Author" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <input placeholder="ISBN" asp-for="@Model.ISBN" class="form-control" />
+                        <span asp-validation-for="@Model.ISBN" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <input placeholder="Total Pages" asp-for="@Model.TotalPages" class="form-control" />
+                        <span asp-validation-for="@Model.TotalPages" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <input placeholder="Publisher" asp-for="@Model.Publisher" class="form-control" />
+                        <span asp-validation-for="@Model.Publisher" style="color:green"></span>
+                    </div>
+                    <div class="form-group col">
+                        <div class="container">
+                            <div class="row">
+                                <input type="date" asp-for="@Model.PublishDate" name="name" value="" class="col" />
+                                <span asp-validation-for="@Model.PublishDate" style="color:green"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            @*<div class="form-group col">
+
+          <select asp-for="@Model.GenreId">)">
+              <option>Select Genre</option>
+              <option value="1">Fiction</option>
+              <option value="2">Sci-fi</option>
+              <option value="3">Drama</option>
+              <option value="4">African Tale</option>
+              <option value="5">History</option>
+          </select>
+              <span asp-validation-for="@Model.GenreId" style="color:green"></span>
+        </div>*@
+                            <div class="form-group col">
+                                <input placeholder="Total Pages" asp-for="@Model.GenreId" class="form-control" />
+                                <span asp-validation-for="@Model.GenreId" style="color:green"></span>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="file" asp-for="@Model.BookImage" value="" />
+                                <span asp-validation-for="@Model.BookImage" style="color:green"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <textarea cols="40" rows="3" placeholder="Description" asp-for="@Model.Description"></textarea>
+                    </div>
+                    <div class="form-group col d-flex justify-content-center align-content-center add-book-btn pb-2">
+                        <button type="submit" class="btn form-btn btn-dark" id="add-book-button">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

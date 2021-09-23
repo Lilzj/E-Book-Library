@@ -1,0 +1,89 @@
+@model PaginationFilter<Book>
+
+@{
+    ViewData["Title"] = "Home Page";
+    //if (Model != null)
+    //{
+    //    ViewBag.FirstName = Model.FirstName;
+    //    ViewBag.LastName = Model.LastName;
+    //}
+}
+
+<div class="d-flex flex-column justify-content-center home-page">
+    <div class="text-left">
+        <div>
+            <h5 class="text-center">What Interest you</h5>
+            @ViewBag.name
+        </div>
+        <div class="d-flex  justify-content-around py-2 bg-white">
+            <div class="text-center">
+                <span class="category-Book">Fiction Books @ViewBag.firstname </span>
+                <div class="my-4 btn-style-1">
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Drama</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Horror</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Mystery</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Sci-fi</button>
+                </div>
+            </div>
+            <div class="text-center">
+                <span class="category-Book">Non - Fiction Books</span>
+                <div class="my-4 btn-style-1">
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Art</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Biography</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Sport</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-genre">Travel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="new-releases">
+        <div class="container py-3">
+            <strong class="section-title">New Realeases <span>Books:</span> 20</strong>
+            <hr />
+            <div class="row justify-content-center text-left">
+                @{
+                    foreach (var book in Model.Items)
+                    {
+                        <div class="item py-4 col-lg-2 col-sm-4 col-12">
+                                            <div class="card book-list">
+                                                <a asp-action="GetSingleBook" asp-controller="Books" asp-route-id="@book.Id">
+                                                    <img src="@book.ImageUrl" alt="Book image" class="card-img-top img-fluid img-book" />
+                                                </a>
+                                               
+                                                <div class="card-body">
+                                                    <h4 class="card-title book-title">@book.Title</h4>
+                                                    <p class="card-text book-author">
+                                                        @book.Author
+                                                    </p>
+                                                    <div class="text-warning">
+                                                        @{
+                                                            for (int j = 0; j < 5; j++)
+                                                            {
+                                                                <span><i class="fa fa-star"></i></span>
+                                                            }
+                                                        }
+                                                    </div>
+                                                    <div>
+                                                        <span>Available</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item @(Model.PreviousPage?"":"disabled")"> <a class="page-link @(Model.PreviousPage?"":"bg-secondary")" asp-controller="Home" asp-action="Index" asp-route-pagenumber="@(Model.CurrentPage-1)"> << </a> </li>
+                @for (int i = 1; i <= Model.Totalpages; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage? "active-block":"")"> <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pagenumber="@i"> @i </a> </li>
+                }
+                <li class="page-item @(Model.NextPage?"":"disabled")" > <a class="page-link @(Model.NextPage?"":"bg-secondary")" asp-controller="Home" asp-action="Index" asp-route-pagenumber="@(Model.CurrentPage+1)"> >> </a> </li>
+            </ul>
+        </div>
+    </section>
+    </div>
+ </div>
+ 

@@ -1,0 +1,101 @@
+﻿@model DashBoardViewModel
+@{
+
+}
+
+<!-- Classic tabs -->
+<div class="container-fluid p-2">
+    <div class="row no-gutters">
+        <!--pills-->
+        <div class="col-3 no-gutters">
+            <div class="nav flex-column nav-pills mt-3rem" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Books</a>
+                <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">User</a>
+                <a class="nav-link" id="v-pills-cat-tab" data-toggle="pill" href="#v-pills-cat" role="tab" aria-controls="v-pills-cat" aria-selected="false">Genre</a>
+            </div>
+        </div>
+        <!--pills-->
+        <!--tabs-->
+        <div class="col-9 no-gutters">
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <!-- booklist -->
+                <div class="tab-pane fade show active  dash-tab-pane" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <a asp-action="AddBook" asp-controller="Dashboard"><div class="d-flex justify-content-end justify-content-end"> <div class=" mb-3 mt-2 mr-5 btn btn-primary add-book-nav-btn ">Add Book</div></div></a>
+                    <div>
+                        <div class="book-layout-container">
+                            <div class="list-group admin-list-item">
+                                @foreach (var book in Model.Books.Items)
+                                {
+                                    <div class="list-group-item list-group-item-action mt-1 d-flex">
+                                        <div class="col-5">@book.Title</div>
+                                        <div class="col-3">@book.Author</div>
+                                        <div class="col-4">
+                                            <form action="" method="post">
+                                                <a asp-controller="DashBoard" asp-action="UpdateBook" asp-route-id="@book.Id" class="btn form-btn btn-outline-primary" role="button">Edit Book </a>
+                                                <button type="submit" asp-action="DeleteBook" asp-controller="Dashboard" asp-route-id="@book.Id" class="btn form-btn btn-outline-danger">Delete</button>
+                                            </form>                                            
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--User panel-->
+
+                <div class="tab-pane fade dash-tab-pane" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                    <!--<a asp-action="SignUp" asp-controller="Account"><div class="d-flex justify-content-end justify-content-end"> <div class=" mb-3 mt-2 mr-5 btn btn-primary add-book-nav-btn ">Add User</div></div></a> -->
+                    <div>
+                        <div class="book-layout-container">
+                            <div class="list-group admin-list-item">
+                                @*@foreach (var user in Model.Users)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action mt-1 d-flex">
+                                <div class="col-3">@user.FirstName</div>
+                                <div class="col-3">@user.LastName</div>
+                                <div class="col-3">@user.Email</div>
+                                <div class="">
+                                    <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-primary">Disalbe User</button>
+                                    <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-danger">Delete</button>
+                                </div>
+                            </a>
+                        }*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--genre panel-->
+
+                <div class="tab-pane dash-tab-pane" id="v-pills-cat" role="tabpanel" aria-labelledby="v-pills-cat-tab">
+                    <a asp-controller="Dashboard" asp-action="AddGenre"><div class="d-flex justify-content-end justify-content-end"> <div class=" mb-3 mt-2 mr-5 btn btn-primary add-book-nav-btn ">Add Genre</div></div></a>
+                    <div>
+                        <div class="book-layout-container">
+                            <div class="list-group admin-list-item">
+                                @*@foreach (var user in Model.Users)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action mt-1 d-flex">
+                                <div class="col-3">@user.FirstName</div>
+                                <div class="col-3">@user.LastName</div>
+                                <div class="col-3">@user.Email</div>
+                                <div class="">
+                                    <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-danger">Delete</button>
+                                </div>
+                            </a>
+                        }*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!--tabs-->
+    </div>
+</div>
+<!-- Classic tabs -->

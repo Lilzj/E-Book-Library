@@ -1,0 +1,7 @@
+﻿body {
+    border:1px solid red !important;
+}
+.dash-tab-items {
+    border-right: 2px double #eee;
+    height: 80vh;
+}

@@ -1,0 +1,13 @@
+﻿using E_library.Lib.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace E_Library.ViewModel
+{
+    public class AddGenre
+    {
+        public Genre Genre { get; set; }
+    }
+}

@@ -1,0 +1,167 @@
+﻿@model DashBoardViewModel
+@{
+    Layout = "_Layout.cshtml";
+}
+<!--header-->
+<div class="row" id="header-bar">
+    <div class="col-md-6" id="dash-title">
+        <div class="mt-2" id="title">Admin Dashboard</div>
+    </div>
+    <div class="d-flex justify-content-end col-md-6 align-content-center" id="dash-title">
+        <!-- TODO ADD DATA FROM VIEW MODEL-->
+        <div class="dit mr-3 mt-3">
+            User: Young Solomon
+        </div>
+        <div id="img-wrapper" class="  mt-2">
+
+        </div>
+    </div>
+</div>
+
+<!-- Classic tabs -->
+<div class="container-fluid p-2">
+    <div class="row no-gutters">
+        <!--pills-->
+        <div class="col-3 no-gutters">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style=" border: 2px double #ddd;">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Book</a>
+                <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">User</a>
+                <a class="nav-link" id="v-pills-adduser-tab" data-toggle="pill" href="#v-pills-adduser" role="tab" aria-controls="v-pills-adduser" aria-selected="false">User</a>
+            </div>
+        </div>
+        <!--pills-->
+        <!--tabs-->
+        <div class="col-9 no-gutters">
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <!-- booklist -->
+                <div class="tab-pane fade show active dash-tab-field" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style=" border: 2px double #ddd;">
+                    <div>
+                        <div class="book-layout-container">
+                            <div class="d-flex col-md-6 searchBar p-2" style="margin:0 auto;">
+                                <input placeholder="Search a book" class="form-control" />
+                                <select>
+                                    <option value="value">Search By</option>
+                                </select>
+                                <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark">Go</button>
+                            </div>
+                            <!--TODO: ADD BOOK LIST IN A LOOP-->
+                            <div class="list-group mt-2">
+                                @for (int i = 0; i < 8; i++)
+                                {
+                                    <a href="#" class="list-group-item list-group-item-action mt-1 d-flex">
+                                        <div class="col-5">48 Laws of power</div>
+                                        <div class="col-4">Tim Lahaye</div>
+                                        <div class="col-3">
+                                            <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-primary">Edit Book</button>
+                                            <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-danger">Delete</button>
+
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--add book -->
+                <div class="tab-pane fade dash-tab-field" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style=" border: 2px double #ddd;">
+                    <div class="container-fluid d-flex justify-content-center align-content-center mt-2">
+                        <div class="col-md-6 book-layout-container">
+                            <a href="#add-book-form" data-toggle="collapse" class="collapse-header" style="width:90%;"><i class="fas fa-book"></i>&nbsp;Add Books</a>
+                            <div id="add-book-form" class="collapse show">
+                                <form method="post" asp-controller="Book" class="Add-book-form" asp-action="AddBook">
+                                    <div class="form-group col">
+                                        <input placeholder="Title" asp-for="BookTitle" class="form-control" />
+                                        <span asp-validation-for="BookTitle" style="color:green"></span>
+                                    </div>
+                                    <div class="form-group col">
+                                        </i><input placeholder="Author" asp-for="Authur" class="form-control" />
+                                        <span asp-validation-for="Authur" style="color:green"></span>
+                                    </div>
+                                    <div class="form-group col">
+                                        <input placeholder="ISBN" asp-for="BookIsbn" class="form-control" />
+                                        <span asp-validation-for="BookIsbn" style="color:green"></span>
+                                    </div>
+                                    <div class="form-group col">
+                                        <input placeholder="Total Copies" asp-for="TotalCopies" class="form-control" />
+                                        <span asp-validation-for="TotalCopies" style="color:green"></span>
+                                    </div>
+                                    <div class="form-group col">
+                                        <div class="container">
+                                            <div class="row">
+                                                <input type="date" placeholder="date added" name="name" value="" class="col" />
+                                                <span asp-validation-for="DatePublished" style="color:green"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <select placeholder="" style="">
+                                                    <option>Select Category</option>
+                                                </select>
+                                                <span asp-validation-for="Genre" style="color:green"></span>
+                                            </div>
+
+                                            <div class="form-group col">
+                                                <input type="file" name="name" value="" />
+                                                <span asp-validation-for="BookIsbn" style="color:green"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <textarea cols="40" rows="3" placeholder="Description"></textarea>
+                                    </div>
+                                    <div class="form-group col d-flex justify-content-center align-content-center add-book-btn pb-2">
+                                        <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark" id="add-book-button">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade dash-tab-field" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab" style=" border: 1px solid;">
+                    <div>
+                        <div class="book-layout-container">
+                            <div class="d-flex col-md-6 searchBar p-2" style="margin:0 auto;">
+                                <input placeholder="Search a book" class="form-control" />
+                                <select>
+                                    <option value="value">Search By</option>
+                                </select>
+                                <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark">Go</button>
+                            </div>
+                            <!--TODO: ADD BOOK LIST IN A LOOP-->
+                            <div class="list-group mt-2">
+                                @for (int i = 0; i < 8; i++)
+                                {
+                                    <a href="#" class="list-group-item list-group-item-action mt-1 d-flex">
+                                        <div class="col-5">48 Laws of power</div>
+                                        <div class="col-4">Tim Lahaye</div>
+                                        <div class="col-3">
+                                            <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-primary">Edit Book</button>
+                                            <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-danger">Delete</button>
+
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade dash-tab-field" id="v-pills-adduser" role="tabpanel" aria-labelledby="v-pills-adduser-tab" style=" border: 1px solid;">
+                    edit profile
+                </div>
+
+
+            </div>
+        </div>
+        <!--tabs-->
+    </div>
+</div>
+<!-- Classic tabs -->

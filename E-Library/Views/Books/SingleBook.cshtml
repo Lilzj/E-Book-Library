@@ -1,0 +1,90 @@
+﻿@model SingleBookResponseDTO
+@{
+    ViewData["Title"] = "Single Book";
+}
+
+<div class="d-flex flex-column justify-content-center home-page">
+    <div class="d-flex flex-column justify-content-center home-page">
+        <div class="text-left">
+            <div class="d-flex justify-content-around py-2">
+                <div class="my-6">
+                    <button class="btn btn-outline-secondary rounded-pill btn-category">New release</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-category">Most Popular</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-category">Browse Genres</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-category">Advance Search</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="new-releases">
+            <div class="container py-5">
+                <strong class="section-title">Showing 1 result for @Model.Title</strong>
+                <hr />
+                <div class="d-flex">
+                    <div class="">
+                        <img src="@Model.ImageUrl" alt="" class="card-img-top img-book" />
+                    </div>
+                    <div>
+                        <div class="card-body pb-0">
+                            <h2 class="card-title book-title"><b>@Model.Title</b></h2>
+                            <span>Copies in Library: <b>@Model.CopiesInLibrary</b></span>
+                            <span>Copies taken out: <b>@Model.CopiesTakenOut</b></span> <br />
+                            <span>Genre: <b>@Model.GenreName</b></span> <br />
+                            <span>Author: <b>@Model.Author</b> </span><br />
+                            <span>Publisher: <b>@Model.Publisher</b> </span><br />
+                            <span>Published Date: <b>@Model.PublishDate</b></span><br />
+                            <span>ISBN: <b>@Model.ISBN</b> </span><br />
+                            <span>Pages: <b>@Model.TotalPages</b> </span><br />
+                        </div>
+                        <div class="d-flex pl-3">
+                            <div>
+                                <span>Description: </span>
+                            </div>
+                            <div class=" ml-2">
+                                <b>
+                                    @Model.Description
+                                </b>
+                                <br />
+                                <a>Read more</a>
+                                <div>
+                                    <span>e-Version: <b>Yes</b></span>
+                                    <button class="btn btn-dark">Read Now</button>
+                                    <button class="btn btn-outline-dark">Download</button>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="text-warning mr-2">
+                                        @{
+                                            for (int j = 0; j < 5; j++)
+                                            {
+                                                <span><i class="fa fa-star"></i></span>
+                                            }
+                                        }
+                                    </div>
+                                    <div>
+                                        <span>3</span>
+                                    </div>
+                                </div>
+                                <div class="mt-5">
+                                    <h6>Reviews</h6>
+                                    @{
+                                        int numToPick = 3 > Model.Reviews.Count ? Model.Reviews.Count : 3;
+                                        for (int i = 0; i < numToPick; i++)
+                                        {
+                                            foreach (var item in Model.Reviews)
+                                            {
+                                                <div class="mb-4">
+
+                                                    <span>@item.Description</span>
+                                                </div>
+                                            }
+
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

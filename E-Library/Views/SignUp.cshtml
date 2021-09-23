@@ -1,0 +1,34 @@
+﻿@model SignUpViewModel
+
+<div row class=" d-flex justify-content-center align-items-center login-sign-up-container p-4 mt-5">
+    <div class="col-md-4 sign-up-form-wrapper">
+        <form method="post" asp-action="Login" id="sign-up-form" asp-controller="Account">
+            <br />
+            <div class="form-group">
+                <label class="form-title">User Sign Up</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">User Name</label>
+                <span class="fas fa-user"></span><input placeholder="Email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" style="color:green"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <i class="fas fa-key"></i><input placeholder="Password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Confirm Password</label>
+                <i class="fas fa-key"></i><input placeholder="Confirm Password" asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" asp-controller="Account" asp-action="SignUp" class="btn form-btn" id="login-btn">Sign Up</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" asp-controller="Account" asp-action="Login" class="btn form-btn" id="sign-btn">Login Instead</button>
+            </div>
+            <div style="color:#ff0000">@ViewBag.Message</div>
+        </form>
+    </div>
+</div>

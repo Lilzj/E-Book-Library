@@ -1,0 +1,24 @@
+﻿@model AddGenre
+<div class="tab-pane  dash-tab-field dash-tab-pane" id="v-pills-adduser" role="tabpanel" aria-labelledby="v-pills-adduser-tab">
+    <div class="container-fluid d-flex justify-content-center align-content-center mt-2">
+        <div class="col-md-6 book-layout-container">
+            <a href="#add-book-form" data-toggle="collapse" class="collapse-header" style="width:90%;"><i class="fas fa-book"></i>&nbsp;Add Genre</a>
+            <div id="add-book-form" class="collapse show mb-5">
+                <form method="post" asp-controller="Book" class="Add-book-form" asp-action="AddBook">
+                    <div class="form-group col">
+                        <input placeholder="Title" asp-for="Genre.title" class="form-control" />
+                        <span asp-validation-for="Genre.title" style="color:green"></span>
+                    </div>
+                    <div class="form-group col d-flex justify-content-center align-content-center add-book-btn pb-2">
+                        <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark" id="add-book-button">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

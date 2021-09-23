@@ -1,0 +1,73 @@
+﻿/*login page rules*/
+body {
+    border: 1px solid #eee;
+}
+
+.login-sign-up-items {
+    height: 80vh;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0.5px 0px 1px #efdcdc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#login-form {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 60vh;
+}
+
+.form-title {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -50px;
+    font-size: 1.8em;
+}
+
+.form-btn {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#login-btn {
+    background-color: #181818;
+    text-align: center;
+    color: #fff;
+}
+
+    #login-btn:hover {
+        background-color: #fff;
+        color: #181818;
+        border: 1px solid #181818;
+    }
+
+.sign-up-form-div {
+    border: 1px solid;
+    background-color: #242424;
+}
+
+#sign-btn {
+    border: 1px solid #181818;
+    text-align: center;
+}
+
+    #sign-btn:hover {
+        background-color: #f00;
+        color: #fff;
+        border: 1px solid #181818;
+    }
+
+/*sign up rules*/
+.sign-up-form-wrapper {
+    box-shadow: 0px 0.5px 0px 1px #efdcdc;
+    background-color: #fff;
+}
+
+#sign-up-form {
+    height: 80vh;
+    margin-top: 10px;
+    border-radius: 5px;
+}

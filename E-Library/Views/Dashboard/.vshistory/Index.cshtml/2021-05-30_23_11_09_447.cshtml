@@ -1,0 +1,74 @@
+﻿<!--header-->
+<div class="row" id="header-bar">
+    <div class="col-md-6" id="dash-title">
+        <div class="mt-2" id="title">Admin Dashboard</div>
+    </div>
+    <div class="d-flex justify-content-end col-md-6 align-content-center" id="dash-title">
+        <!-- TODO ADD DATA FROM VIEW MODEL-->
+        <div class="dit mr-3 mt-3">
+            User: Young Solomon
+        </div>
+        <div id="img-wrapper" class="  mt-2">
+
+        </div>
+    </div>
+</div>
+
+<!-- Classic tabs -->
+<div class="container-fluid" style="border:1px solid#000;">
+    <div class="row no-gutters" >
+        <div class="col-3 no-gutters dash-tab-items">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Books</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Books</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">View Users</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Users</a>
+            </div>
+        </div>
+        <div class="col-9 no-gutters dash-tab-items">
+            <div class="tab-content" id="v-pills-tabContent ">
+                <!-- pill profile view books -->
+                <div class="tab-pane fade show active dash-tab-field" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style=" border: 1px solid;">
+                        <div class="book-layout-container">
+                            <div id="" class="p-2" style="height:80vh">
+                                <div class="d-flex col-md-6 searchBar" style="margin:0 auto;">
+                                    <input placeholder="Search a book" class="form-control" />
+                                    <select>
+                                        <option value="value">Search By</option>
+                                    </select>
+                                    <button type="submit" asp-action="" asp-controller="" class="btn form-btn btn-dark">Go</button>
+                                </div>
+                                <!--TODO: ADD BOOK LIST IN A LOOP-->
+                                <div class="list-group mt-2">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <a href="#" class="list-group-item list-group-item-action mt-1 d-flex">
+                                            <div class="col-4">48 Laws of power</div>
+                                            <div class="col-5">Tim Lahaye</div>
+                                            <div class="">
+                                                <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-primary">Edit Book</button>
+                                                <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn form-btn btn-outline-danger">Delete</button>
+                                            </div>
+                                        </a>
+                                    }
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- pill Edit profile -->
+                <div class="tab-pane fade dash-tab-field" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style=" border: 1px solid;">
+                   Add books
+                </div>
+                <!-- pill Edit profile -->
+                <div class="tab-pane fade dash-tab-field" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style=" border: 1px solid;">
+                    View Users
+                </div>
+                <!-- pill Edit profile -->
+                <div class="tab-pane fade dash-tab-field" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style=" border: 1px solid;">
+                    edit Users
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Classic tabs -->
